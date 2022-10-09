@@ -1,0 +1,262 @@
+.weather-dnipro {
+   margin-top: -30px;
+}
+.weather__cont-dnipro{
+}
+.weather__main {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-inline: 50px;
+   margin-bottom: 30px;
+   @media (max-width: $md2) {
+      margin-inline: 25px;
+   }
+
+   @media (max-width: $md2) {
+      margin-inline: 10px; 
+   }
+}
+
+.weather__info {
+   display: flex;
+   align-items: center;
+}
+
+.weather__image {
+   margin-right: 25px;
+}
+
+.weather__img {
+   img {
+      width: 85px;
+      @media (max-width: $md2) {
+         width: 65px;
+      }
+      
+      @media (max-width: $md2) {
+         width: 50px;
+      }
+   }
+         
+}
+
+.weather__dates {
+   margin-right: 50px;
+}
+
+.weather__date {}
+
+.weather__temp {
+   height: 60px;
+   font-size: 60px;
+   @media (max-width: $md2) {
+      font-size: 40px;
+   }
+   @media (max-width: $md2) {
+      font-size: 33px;
+   }
+
+}
+
+.weather__desc {
+   font-size: 30px;
+   height: 30px;
+   @media (max-width: $md2) {
+      font-size: 23px;
+   }
+   @media (max-width: $md2) {
+      font-size: 19px;
+   }
+}
+
+.weather__city-name {}
+
+.weather__city-name__name {
+   height: 36px;
+   text-align: right;
+   font-size: 36px;
+   margin-bottom: 10px;
+   @media (max-width: $md2) {
+      font-size: 27px;
+   }
+   @media (max-width: $md2) {
+      font-size: 21px;
+   }
+}
+
+.weather__city-name__date {
+   font-size: 24px;
+   color: rgba(255, 255, 255, 0.7);
+   text-align: right;
+   @media (max-width: $md2) {
+      font-size: 18px;
+   }
+}
+
+.weather__add-info {
+   font-size: 20px;
+   margin-left: 50px;
+   margin-bottom: 20px;
+   color: rgba(255, 255, 255, 0.85);
+   @media (max-width: $md2) {
+      font-size: 18px;
+   }
+   @media (max-width: $md3) {
+      text-align: center;
+      margin-left: 0px;
+      line-height: 18px;
+   }
+}
+
+.weather__add-info__precipitation {}
+
+.weather__add-info__humidity {}
+
+.weather__add-info__wind {}
+
+.weather__timeBlock {
+   margin-bottom: 35px;
+}
+
+.weather__timeBlock__date {
+   text-align: center;
+   margin-bottom: 30px;
+}
+
+.weather__timeBlock_date__day {
+   font-size: 30px;
+}
+
+.weather__timeBlock__times {
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+   @media (max-width: $md1) {
+      display: flex;
+      overflow-x: scroll;
+   }
+
+}
+
+.weather__timeBlock__article {
+   display: inline-block;
+   background-color: #374464;
+   border-radius: 15px;
+   margin-inline: 4px;
+   @media (max-width: $md1) {
+      flex: 0 0 160px;
+   }
+}
+
+.weather__timeBlock__item {
+   padding: 5px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+.weather__timeBlock__item__time {
+   font-size: 36px;
+}
+
+.weather__timeBlock__item__img {
+   img {
+      width: 70px;
+   }
+}
+
+.weather__timeBlock__item__desc {
+   font-size: 18px;
+}
+
+.weather__timeBlock__item__temp {
+   font-size: 36px;
+}
+
+.weather__timeBlock__item__feelsLike {
+   font-size: 16px;
+   color: rgba(255, 255, 255, 0.6);
+   margin-bottom: 15px;
+}
+
+.weather__timeBlock__item__windImg {
+   img {
+      width: 18px;
+   }
+}
+
+.weather__timeBlock__item__wind {
+   font-size: 16px;
+   color: rgba(255, 255, 255, 0.8);
+}
+
+.weather__timeBlock__buttons {
+
+}
+
+.weather__timeBlock__buttons__container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   @media (max-width: $md2) {
+         display: grid;
+         grid-template-columns: 1fr 1fr;
+         justify-items: center
+   }
+}
+
+.weather__timeBlock__button__item {
+   & button {
+      border-radius: 30px;
+      color: white;
+      transition: all 0.3s ease 0s;
+   }
+   & button:hover {
+      transition: all 0.3s ease 0s;
+      text-decoration: white underline;
+   }
+   margin-top: 30px;
+   margin-inline: 18px;
+   @media (max-width: $md4) {
+      margin-inline: 15px;
+   }
+}
+
+.weather__timeBlock__button {
+   font-size: 25px;
+   background: #243266;
+      border: 2px solid #FFFFFF;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 25px;
+      padding: 5px 45px;
+   @media (max-width: $md4) {
+      font-size: 18px;
+      padding: 5px 35px;
+   }
+}
+.weather__backButton {
+   margin-top: 70px;
+   margin-bottom: 20px;
+}
+
+.weather__button {
+   text-align: center;
+   transition: all 0.3s ease 0s;
+   & a {
+      font-size: 25px;
+      opacity: 0.8;
+      border: 1px solid white;
+      border-radius: 30px;
+      background-color: #202044;
+      color: white;
+      padding: 5px 20px;
+   }
+   &:hover {
+      transform: scale(1.05);
+   }
+
+   &:active {
+      transform: scale(0.95);
+   }
+}

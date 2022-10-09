@@ -1,0 +1,194 @@
+// Импорт нуля
+@import "null.scss";
+
+// Переменные $name: ;
+$fontFamily: "";  // шрифт по умолч
+
+$minWidth: 375px;
+$maxWidth: 1920px;   // * 
+$maxWidthContainer: 1120px; // *
+//break points
+$md1: 868px;   
+$md2: 992px;
+$md3: 768px;
+$md4: 480px;
+
+// Шаблоны %name {};
+    // &subset=cyrillic-ext    если сайт исп кириллицу 
+    // &display=swap    
+
+// Миксины @mixin name () {};
+
+//шрифты
+@import url('https://fonts.googleapis.com/css2?family=Mali&display=swap');
+
+body {
+   background-color: #202044;
+   color: white;
+   font-size: 14px;
+   &._lock {
+     overflow: hidden;
+   }
+ }
+ 
+ .wrapper {
+   font-family: $fontFamily;
+   width: 100%;
+   min-height: 100%;
+   overflow: hidden;
+   display: flex;
+   flex-direction: column;
+   &._loaded {
+ 
+   }
+ }
+ 
+ ._container {
+   max-width: $maxWidthContainer;
+   margin: 0 auto;
+   // @media (max-width: $md1) {
+   //   max-width: 970px;
+   // }
+   @media (max-width: $md1) {
+     max-width: 750px;
+   }
+   @media (max-width: $md2) {
+     max-width: none;
+     padding: 0 10px;
+   }
+ }
+ .page {
+   padding-top: 50px;
+   flex: 1 1 auto;
+   @media (max-width: $md3) {
+     padding-top: 40px;
+   }
+ }
+
+// Импорт scss
+// @import "name.scss";
+
+// Стиль
+
+/* header */
+.header {
+  padding-top: 10px;
+}
+
+.header__container {
+  text-align: center;
+}
+
+.header__text {
+  font-family: 'Mali', cursive;
+  height: 48px;
+  font-size: 48px;  
+  margin-bottom: 20px;
+    @media (max-width: $md3) {
+      font-size: 36px;
+      margin-bottom: 0px;
+    }
+    @media (max-width: $md4) {
+      font-size: 28px;
+    }
+}
+
+.header__date {
+  height: 20px;
+}
+
+.header__date-day {
+  height: 20px;
+  font-size: 20px;
+  margin-bottom: 7px;
+}
+
+.header__date-num {
+  height: 16px;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* main */
+
+.weather {}
+
+.weather__container {}
+
+._container {}
+
+.weather__city {
+  border: 1px solid white;
+  border-radius: 20px;
+  // height: 137px;
+  margin-bottom: 25px;
+}
+
+.weather__city__href {
+    color: white;
+}
+
+.weather__city__box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-inline: 30px;
+  padding-block: 15px;
+    @media (max-width: $md4) {
+      margin-inline: 10px;
+    }
+}
+
+.weather__city__info {
+  display: flex;
+  align-items: center;
+  @media (max-width: $md4) {
+    margin-right: 30px;
+  }
+}
+
+.weather__city__info-image {
+  margin-right: 15px;
+}
+
+.weather__city__info-img {
+  img {
+    width: 60px;
+    border-radius: 45px;
+    @media (max-width: $md3) {
+      width: 50px;
+    }
+  }
+}
+
+.weather__city__info-data {}
+
+.weather__city__info-temp {
+  font-size: 38px;
+    @media (max-width: $md3) {
+      font-size: 28px;
+    }
+}
+
+.weather__city__info-cloud {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    @media (max-width: $md3) {
+      font-size: 14px;
+    }
+}
+
+.weather__city__name {}
+
+.weather__city__name-name {
+  font-size: 36px;
+      @media (max-width: $md3) {
+          font-size: 28px;
+        }
+      @media (max-width: $md4) {
+        font-size: 18px;
+      }
+}
+
+@import "dnipro.scss";
