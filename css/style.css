@@ -172,6 +172,16 @@ body._lock {
   border: 1px solid white;
   border-radius: 20px;
   margin-bottom: 25px;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+.weather__city:hover {
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+}
+.weather__city:active {
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
 .weather__city__href {

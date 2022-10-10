@@ -122,11 +122,19 @@ body {
   border-radius: 20px;
   // height: 137px;
   margin-bottom: 25px;
+  transition: all 0.3s ease 0s;
+  &:hover {
+    transform: scale(1.01);
+  }
+  &:active {
+    transform: scale(1)
+  }
 }
 
 .weather__city__href {
     color: white;
 }
+
 
 .weather__city__box {
   display: flex;

@@ -28,6 +28,7 @@ const transformDate = (index) => {
 }
 
 if (isMainPage) {
+   console.log("ss");
    currDay.innerHTML = transformDate(curDay.getDay());
    currDate.innerHTML = `${curDay.getDate()}.${curDay.getMonth() + 1}.${curDay.getFullYear()}`;
 } else if (isDnipro) {
@@ -95,91 +96,94 @@ async function getForecastWeather() {
       let array = list.list;
       for (let i = 0; i < 8; i++) {
 
-         let itemTime = (array[i].dt_txt).slice(10, array[i].dt_txt.length - 3);
-         let itemWeather = array[i].weather[0].main;
-         let itemTemp = (array[i].main.temp - 273.15).toFixed(0) + "°";
-         let itemFeels = "чувств. как: " + (array[i].main.feels_like - 273.15).toFixed(0) + "°";
-         let itemWind = "ветер: " + array[i].wind.speed.toFixed(1) + " км/ч";
+         if (isDnipro) {
+            let itemTime = (array[i].dt_txt).slice(10, array[i].dt_txt.length - 3);
+            let itemWeather = array[i].weather[0].main;
+            let itemTemp = (array[i].main.temp - 273.15).toFixed(0) + "°";
+            let itemFeels = "чувств. как: " + (array[i].main.feels_like - 273.15).toFixed(0) + "°";
+            let itemWind = "ветер: " + array[i].wind.speed.toFixed(1) + " км/ч";
 
-         // create elem
-         let newBlockItem = document.createElement("div");
-         newBlockItem.classList.add("weather__timeBlock__item");
+            // create elem
+            let newBlockItem = document.createElement("div");
+            newBlockItem.classList.add("weather__timeBlock__item");
 
-         // create time
-         let divTime = document.createElement("div");
-         divTime.classList.add("weather__timeBlock__item__time");
-         let time = document.createElement("div");
-         time.classList.add("time");
-         divTime.append(time);
-         time.innerHTML = itemTime;
+            // create time
+            let divTime = document.createElement("div");
+            divTime.classList.add("weather__timeBlock__item__time");
+            let time = document.createElement("div");
+            time.classList.add("time");
+            divTime.append(time);
+            time.innerHTML = itemTime;
 
-         // create img 
-         let divImg = document.createElement("div");
-         divImg.classList.add("weather__timeBlock__item__img");
-         let imga = document.createElement("img");
-         imga.setAttribute("src", "https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png");
-         imga.setAttribute("alt", "img");
-         divImg.append(imga);
+            // create img 
+            let divImg = document.createElement("div");
+            divImg.classList.add("weather__timeBlock__item__img");
+            let imga = document.createElement("img");
+            imga.setAttribute("src", "https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png");
+            imga.setAttribute("alt", "img");
+            divImg.append(imga);
 
-         // create weather
-         let divWeather = document.createElement("div");
-         divWeather.classList.add("weather__timeBlock__item__desc");
-         let weather = document.createElement("p");
-         weather.innerHTML = itemWeather;
-         divWeather.append(weather);
+            // create weather
+            let divWeather = document.createElement("div");
+            divWeather.classList.add("weather__timeBlock__item__desc");
+            let weather = document.createElement("p");
+            weather.innerHTML = itemWeather;
+            divWeather.append(weather);
 
-         // create temp
-         let divTemp = document.createElement("div");
-         divTemp.classList.add("weather__timeBlock__item__temp");
-         let temp = document.createElement("p");
-         temp.innerHTML = itemTemp;
-         divTemp.append(temp);
+            // create temp
+            let divTemp = document.createElement("div");
+            divTemp.classList.add("weather__timeBlock__item__temp");
+            let temp = document.createElement("p");
+            temp.innerHTML = itemTemp;
+            divTemp.append(temp);
 
-         // feels like 
-         let divFeels = document.createElement("div");
-         divFeels.classList.add("weather__timeBlock__item__feelsLike");
-         divFeels.innerHTML = itemFeels;
+            // feels like 
+            let divFeels = document.createElement("div");
+            divFeels.classList.add("weather__timeBlock__item__feelsLike");
+            divFeels.innerHTML = itemFeels;
 
-         // wind img
-         let divWindImg = document.createElement("div");
-         divFeels.classList.add("weather__timeBlock__item__windImg");
-         let windImg = document.createElement("img");
-         windImg.setAttribute("src", "http://127.0.0.1:5500/img/Arrow%201.png");
-         windImg.setAttribute("alt", "img");
-         divWindImg.append(windImg);
+            // wind img
+            let divWindImg = document.createElement("div");
+            divFeels.classList.add("weather__timeBlock__item__windImg");
+            let windImg = document.createElement("img");
+            windImg.setAttribute("src", "http://127.0.0.1:5500/img/Arrow%201.png");
+            windImg.setAttribute("alt", "img");
+            divWindImg.append(windImg);
 
-         // wind
-         let divWind = document.createElement("div");
-         divWind.classList.add("weather__timeBlock__item__wind");
-         let wind = document.createElement("p");
-         wind.innerHTML = itemWind;
-         divWind.append(wind);
+            // wind
+            let divWind = document.createElement("div");
+            divWind.classList.add("weather__timeBlock__item__wind");
+            let wind = document.createElement("p");
+            wind.innerHTML = itemWind;
+            divWind.append(wind);
 
-         // add to newBlock
-         newBlockItem.append(divTime);
-         newBlockItem.append(divImg);
-         newBlockItem.append(divWeather);
-         newBlockItem.append(divTemp);
-         newBlockItem.append(divFeels);
-         newBlockItem.append(divWindImg);
-         newBlockItem.append(divWind);
+            // add to newBlock
+            newBlockItem.append(divTime);
+            newBlockItem.append(divImg);
+            newBlockItem.append(divWeather);
+            newBlockItem.append(divTemp);
+            newBlockItem.append(divFeels);
+            newBlockItem.append(divWindImg);
+            newBlockItem.append(divWind);
 
-         let fixTime = array[i].dt_txt.slice(11, array[i].dt_txt.length - 6)
-         if (itemTime.includes("09")) {
-            weatherBlockItem[0].append(newBlockItem);
+            let fixTime = array[i].dt_txt.slice(11, array[i].dt_txt.length - 6)
+            if (itemTime.includes("09")) {
+               weatherBlockItem[0].append(newBlockItem);
+            }
+            if (itemTime.includes("12")) {
+               weatherBlockItem[1].append(newBlockItem);
+            }
+            if (itemTime.includes("15")) {
+               weatherBlockItem[2].append(newBlockItem);
+            }
+            if (itemTime.includes("18")) {
+               weatherBlockItem[3].append(newBlockItem);
+            }
+            if (itemTime.includes("21")) {
+               weatherBlockItem[4].append(newBlockItem);
+            }
          }
-         if (itemTime.includes("12")) {
-            weatherBlockItem[1].append(newBlockItem);
-         }
-         if (itemTime.includes("15")) {
-            weatherBlockItem[2].append(newBlockItem);
-         }
-         if (itemTime.includes("18")) {
-            weatherBlockItem[3].append(newBlockItem);
-         }
-         if (itemTime.includes("21")) {
-            weatherBlockItem[4].append(newBlockItem);
-         }
+
       }
 
 
