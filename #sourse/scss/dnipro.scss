@@ -48,15 +48,10 @@
 .weather__date {}
 
 .weather__temp {
-   height: 60px;
    font-size: 60px;
    @media (max-width: $md2) {
       font-size: 40px;
    }
-   @media (max-width: $md2) {
-      font-size: 33px;
-   }
-
 }
 
 .weather__desc {

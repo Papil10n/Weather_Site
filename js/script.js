@@ -13,8 +13,9 @@ let weatherBlockItem = document.querySelectorAll(".weather__timeBlock__article")
 
 // Location
 let BrowserLocation = window.location.href;
-let isMainPage = BrowserLocation.includes("index.html") || BrowserLocation.includes("ther_Site/");
-let isDnipro = BrowserLocation.includes("dnipro.html");
+let partLocation = BrowserLocation.substring(BrowserLocation.length - 12);
+let isMainPage = partLocation.includes("index.html") || partLocation.includes("ther_Site/");
+let isDnipro = partLocation.includes("dnipro.html");
 
 
 // set Current Date
@@ -28,7 +29,6 @@ const transformDate = (index) => {
 }
 
 if (isMainPage) {
-   console.log("ss");
    currDay.innerHTML = transformDate(curDay.getDay());
    currDate.innerHTML = `${curDay.getDate()}.${curDay.getMonth() + 1}.${curDay.getFullYear()}`;
 }
@@ -44,7 +44,7 @@ if (isDnipro) {
 async function getCurrentWether() {
    let promise = await fetch('https://api.openweathermap.org/data/2.5/weather?lat=48.45&lon=35.04&appid=60d465ff898de72b202b35030315ce9d');
    let list = await promise.json();
-   console.log(list);
+   // console.log(list);
 
    let country = list.sys.country;
    let sity = list.name;
