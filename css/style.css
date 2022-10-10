@@ -366,6 +366,7 @@ body._lock {
 }
 
 .weather__city-name__date {
+  height: 24px;
   font-size: 24px;
   color: rgba(255, 255, 255, 0.7);
   text-align: right;
@@ -400,6 +401,7 @@ body._lock {
 }
 
 .weather__timeBlock__date {
+  height: 30px;
   text-align: center;
   margin-bottom: 30px;
 }
@@ -428,6 +430,7 @@ body._lock {
   background-color: #374464;
   border-radius: 15px;
   margin-inline: 4px;
+  padding-block: 10px;
 }
 @media (max-width: 868px) {
   .weather__timeBlock__article {
@@ -529,6 +532,7 @@ body._lock {
 }
 
 .weather__timeBlock__button {
+  height: 42px;
   font-size: 25px;
   background: #243266;
   border: 2px solid #FFFFFF;

@@ -86,6 +86,7 @@
 }
 
 .weather__city-name__date {
+   height: 24px;
    font-size: 24px;
    color: rgba(255, 255, 255, 0.7);
    text-align: right;
@@ -113,13 +114,16 @@
 
 .weather__add-info__humidity {}
 
-.weather__add-info__wind {}
+.weather__add-info__wind {
+
+}
 
 .weather__timeBlock {
    margin-bottom: 35px;
 }
 
 .weather__timeBlock__date {
+   height: 30px;
    text-align: center;
    margin-bottom: 30px;
 }
@@ -143,6 +147,7 @@
    background-color: #374464;
    border-radius: 15px;
    margin-inline: 4px;
+   padding-block: 10px;
    @media (max-width: $md1) {
       flex: 0 0 160px;
    }
@@ -224,6 +229,7 @@
 }
 
 .weather__timeBlock__button {
+   height: 42px;
    font-size: 25px;
    background: #243266;
       border: 2px solid #FFFFFF;
