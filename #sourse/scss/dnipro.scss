@@ -59,9 +59,10 @@
    height: 30px;
    @media (max-width: $md2) {
       font-size: 23px;
+      margin-top: 0px;
    }
    @media (max-width: $md2) {
-      font-size: 19px;
+      font-size: 22px;
    }
 }
 
@@ -99,6 +100,9 @@
       font-size: 18px;
    }
    @media (max-width: $md3) {
+      margin-top: -5px;
+      display: flex;
+      justify-content: center;
       text-align: center;
       margin-left: 0px;
       line-height: 18px;
@@ -107,7 +111,11 @@
 
 .weather__add-info__precipitation {}
 
-.weather__add-info__humidity {}
+.weather__add-info__humidity {
+      @media (max-width: $md3) {
+         margin-right: 25px;
+      }
+}
 
 .weather__add-info__wind {
 

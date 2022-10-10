@@ -329,17 +329,11 @@ body._lock {
 }
 
 .weather__temp {
-  height: 60px;
   font-size: 60px;
 }
 @media (max-width: 992px) {
   .weather__temp {
     font-size: 40px;
-  }
-}
-@media (max-width: 992px) {
-  .weather__temp {
-    font-size: 33px;
   }
 }
 
@@ -350,11 +344,12 @@ body._lock {
 @media (max-width: 992px) {
   .weather__desc {
     font-size: 23px;
+    margin-top: 0px;
   }
 }
 @media (max-width: 992px) {
   .weather__desc {
-    font-size: 19px;
+    font-size: 22px;
   }
 }
 
@@ -400,9 +395,22 @@ body._lock {
 }
 @media (max-width: 768px) {
   .weather__add-info {
+    margin-top: -5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     text-align: center;
     margin-left: 0px;
     line-height: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .weather__add-info__humidity {
+    margin-right: 25px;
   }
 }
 
