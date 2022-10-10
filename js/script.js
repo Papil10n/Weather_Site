@@ -31,7 +31,8 @@ if (isMainPage) {
    console.log("ss");
    currDay.innerHTML = transformDate(curDay.getDay());
    currDate.innerHTML = `${curDay.getDate()}.${curDay.getMonth() + 1}.${curDay.getFullYear()}`;
-} else if (isDnipro) {
+}
+if (isDnipro) {
    currDay.innerHTML = transformDate(curDay.getDay());
    currDate.innerHTML = `${curDay.getDate()}.${curDay.getMonth() + 1}.${curDay.getFullYear()}`;
 }
