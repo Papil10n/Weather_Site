@@ -156,8 +156,8 @@ body._lock {
 }
 
 .header__date-day {
-  height: 20px;
-  font-size: 20px;
+  height: 18px;
+  font-size: 18px;
   margin-bottom: 7px;
 }
 
@@ -427,6 +427,11 @@ body._lock {
 .weather__timeBlock_date__day {
   font-size: 30px;
 }
+@media (max-width: 480px) {
+  .weather__timeBlock_date__day {
+    font-size: 25px;
+  }
+}
 
 .weather__timeBlock__times {
   display: -ms-grid;
@@ -434,11 +439,14 @@ body._lock {
   -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
-@media (max-width: 868px) {
+@media (max-width: 480px) {
   .weather__timeBlock__times {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     overflow-x: scroll;
   }
 }
@@ -450,16 +458,15 @@ body._lock {
   margin-inline: 4px;
   padding-block: 10px;
 }
-@media (max-width: 868px) {
+@media (max-width: 480px) {
   .weather__timeBlock__article {
     -webkit-box-flex: 0;
-        -ms-flex: 0 0 160px;
-            flex: 0 0 160px;
+        -ms-flex: 0 0 65px;
+            flex: 0 0 65px;
   }
 }
 
 .weather__timeBlock__item {
-  padding: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -478,32 +485,67 @@ body._lock {
 .weather__timeBlock__item__time {
   font-size: 36px;
 }
+@media (max-width: 480px) {
+  .weather__timeBlock__item__time {
+    font-size: 22px;
+  }
+}
 
 .weather__timeBlock__item__img img {
   width: 70px;
+}
+@media (max-width: 480px) {
+  .weather__timeBlock__item__img img {
+    width: 42px;
+  }
 }
 
 .weather__timeBlock__item__desc {
   font-size: 18px;
 }
+@media (max-width: 480px) {
+  .weather__timeBlock__item__desc {
+    font-size: 11px;
+  }
+}
 
 .weather__timeBlock__item__temp {
   font-size: 36px;
 }
+@media (max-width: 480px) {
+  .weather__timeBlock__item__temp {
+    font-size: 22px;
+  }
+}
 
 .weather__timeBlock__item__feelsLike {
-  font-size: 16px;
+  font-size: 14px;
   color: rgba(255, 255, 255, 0.6);
   margin-bottom: 15px;
+}
+@media (max-width: 480px) {
+  .weather__timeBlock__item__feelsLike {
+    font-size: 8px;
+  }
 }
 
 .weather__timeBlock__item__windImg img {
   width: 18px;
 }
+@media (max-width: 480px) {
+  .weather__timeBlock__item__windImg img {
+    width: 13px;
+  }
+}
 
 .weather__timeBlock__item__wind {
   font-size: 16px;
   color: rgba(255, 255, 255, 0.8);
+}
+@media (max-width: 480px) {
+  .weather__timeBlock__item__wind {
+    font-size: 8px;
+  }
 }
 
 .weather__timeBlock__buttons__container {
@@ -524,6 +566,19 @@ body._lock {
     -ms-grid-columns: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
     justify-items: center;
+  }
+}
+
+.item__add__info {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+  opacity: 0.6;
+}
+@media (max-width: 480px) {
+  .item__add__info {
+    margin-top: 0px;
+    font-size: 11px;
   }
 }
 

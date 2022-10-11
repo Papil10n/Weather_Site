@@ -44,7 +44,7 @@ if (isDnipro) {
 async function getCurrentWether() {
    let promise = await fetch('https://api.openweathermap.org/data/2.5/weather?lat=48.45&lon=35.04&appid=60d465ff898de72b202b35030315ce9d');
    let list = await promise.json();
-   // console.log(list);
+   console.log(list);
 
    let country = list.sys.country;
    let sity = list.name;
@@ -58,6 +58,12 @@ async function getCurrentWether() {
    let description = weather.description;
    let windSpeed = list.wind.speed;
    let windDeg = list.wind.deg;
+
+   let weatherDate = document.querySelector(".weather__date");
+   let itemAddInfo = document.createElement("div");
+   itemAddInfo.classList.add("item__add__info");
+   itemAddInfo.innerHTML = weather.description;
+   weatherDate.append(itemAddInfo);
 
    // Index
    if (isMainPage) {
@@ -101,7 +107,7 @@ async function getForecastWeather() {
             let itemTime = (array[i].dt_txt).slice(10, array[i].dt_txt.length - 3);
             let itemWeather = array[i].weather[0].main;
             let itemTemp = (array[i].main.temp - 273.15).toFixed(0) + "°";
-            let itemFeels = "чувств. как: " + (array[i].main.feels_like - 273.15).toFixed(0) + "°";
+            let itemFeels = "ощущ. как: " + (array[i].main.feels_like - 273.15).toFixed(0) + "°";
             let itemWind = "ветер: " + array[i].wind.speed.toFixed(1) + " км/ч";
 
             // create elem
@@ -145,9 +151,9 @@ async function getForecastWeather() {
 
             // wind img
             let divWindImg = document.createElement("div");
-            divFeels.classList.add("weather__timeBlock__item__windImg");
+            divWindImg.classList.add("weather__timeBlock__item__windImg");
             let windImg = document.createElement("img");
-            windImg.setAttribute("src", "http://127.0.0.1:5500/img/Arrow%201.png");
+            windImg.setAttribute("src", "./../img/Arrow 1.png");
             windImg.setAttribute("alt", "img");
             divWindImg.append(windImg);
 

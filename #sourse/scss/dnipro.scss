@@ -133,13 +133,17 @@
 
 .weather__timeBlock_date__day {
    font-size: 30px;
+   @media (max-width: $md4) {
+         font-size: 25px;
+      }
 }
 
 .weather__timeBlock__times {
    display: grid;
    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-   @media (max-width: $md1) {
+   @media (max-width: $md4) {
       display: flex;
+      justify-content: center;
       overflow-x: scroll;
    }
 
@@ -151,13 +155,13 @@
    border-radius: 15px;
    margin-inline: 4px;
    padding-block: 10px;
-   @media (max-width: $md1) {
-      flex: 0 0 160px;
+   @media (max-width: $md4) {
+      flex: 0 0 65px;
    }
 }
 
 .weather__timeBlock__item {
-   padding: 5px;
+
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -166,37 +170,58 @@
 
 .weather__timeBlock__item__time {
    font-size: 36px;
+   @media (max-width: $md4) {
+         font-size: 22px;
+   }
 }
 
 .weather__timeBlock__item__img {
    img {
       width: 70px;
+      @media (max-width: $md4) {
+         width: 42px;
+      }
    }
 }
 
 .weather__timeBlock__item__desc {
    font-size: 18px;
+   @media (max-width: $md4) {
+      font-size: 11px;
+   }
 }
 
 .weather__timeBlock__item__temp {
    font-size: 36px;
+   @media (max-width: $md4) {
+      font-size: 22px;
+   }
 }
 
 .weather__timeBlock__item__feelsLike {
-   font-size: 16px;
+   font-size: 14px;
    color: rgba(255, 255, 255, 0.6);
    margin-bottom: 15px;
+   @media (max-width: $md4) {
+      font-size: 8px;
+   }
 }
 
 .weather__timeBlock__item__windImg {
    img {
       width: 18px;
+      @media (max-width: $md4) {
+         width: 13px;
+      }
    }
 }
 
 .weather__timeBlock__item__wind {
    font-size: 16px;
    color: rgba(255, 255, 255, 0.8);
+   @media (max-width: $md4) {
+      font-size: 8px;
+   }
 }
 
 .weather__timeBlock__buttons {
@@ -211,6 +236,17 @@
          display: grid;
          grid-template-columns: 1fr 1fr;
          justify-items: center
+   }
+}
+
+.item__add__info {
+   text-align: center;
+   margin-top: 10px;
+   font-size: 14px;
+   opacity: 0.6;
+   @media (max-width: $md4) {
+      margin-top: 0px;
+      font-size: 11px;
    }
 }
 
