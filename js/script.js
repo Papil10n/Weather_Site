@@ -58,12 +58,11 @@ async function getCurrentWether() {
    let description = weather.description;
    let windSpeed = list.wind.speed;
    let windDeg = list.wind.deg;
-
    let weatherDate = document.querySelector(".weather__date");
    let itemAddInfo = document.createElement("div");
    itemAddInfo.classList.add("item__add__info");
    itemAddInfo.innerHTML = weather.description;
-   weatherDate.append(itemAddInfo);
+
 
    // Index
    if (isMainPage) {
@@ -79,6 +78,7 @@ async function getCurrentWether() {
       humidityDnipro.innerHTML = `${humidity}%`;
       curWeather.innerHTML = mainDesc;
       windDnipro.innerHTML = `${windSpeed.toFixed(1)} km/h`;
+      weatherDate.append(itemAddInfo);
 
       // Buttons "day"
       let day1 = document.querySelector(".day_1").innerHTML = transformDate(curDay.getDay() + 1);
@@ -153,9 +153,21 @@ async function getForecastWeather() {
             let divWindImg = document.createElement("div");
             divWindImg.classList.add("weather__timeBlock__item__windImg");
             let windImg = document.createElement("img");
-            windImg.setAttribute("src", "./../img/Arrow 1.png");
+            let windDeg = array[i].wind.deg;
             windImg.setAttribute("alt", "img");
             divWindImg.append(windImg);
+
+            if (windDeg > 315 || windDeg < 45) {
+               windImg.setAttribute("src", "./img/arrTop.png");
+            } else if (windDeg > 45 && windDeg < 135) {
+               windImg.setAttribute("src", "./img/arrRight.png");
+            } else if (windDeg > 135 && windDeg < 225) {
+               windImg.setAttribute("src", "./img/arrBottom.png");
+
+            } else if (windDeg > 225 && windDeg < 315) {
+               windImg.setAttribute("src", "./img/arrLeft.png");
+            }
+
 
             // wind
             let divWind = document.createElement("div");
