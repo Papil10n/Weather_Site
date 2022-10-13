@@ -1,4 +1,7 @@
 // 60d465ff898de72b202b35030315ce9d     Api Key
+
+// need to refactor Dnipro js code
+
 let cityName = document.querySelector(".weather__city__name-name");
 let curTemp = document.querySelector(".weather__city__info-temp");
 let curWeather = document.querySelector(".info-cloud");
@@ -81,10 +84,14 @@ async function getCurrentWether() {
       weatherDate.append(itemAddInfo);
 
       // Buttons "day"
-      let day1 = document.querySelector(".day_1").innerHTML = transformDate(curDay.getDay() + 1);
-      let day2 = document.querySelector(".day_2").innerHTML = transformDate(curDay.getDay() + 2);
-      let day3 = document.querySelector(".day_3").innerHTML = transformDate(curDay.getDay() + 3);
-      let day4 = document.querySelector(".day_4").innerHTML = transformDate(curDay.getDay() + 4);
+      let day1 = document.querySelector(".day_1");
+      let day2 = document.querySelector(".day_2");
+      let day3 = document.querySelector(".day_3");
+      let day4 = document.querySelector(".day_4");
+      day1 != undefined ? day1.innerHTML = transformDate(curDay.getDay() + 1) : day1.innerHTML = undefined;
+      day2 != undefined ? day2.innerHTML = transformDate(curDay.getDay() + 2) : day2.innerHTML = undefined;
+      day3 != undefined ? day3.innerHTML = transformDate(curDay.getDay() + 3) : day3.innerHTML = undefined;
+      day4 != undefined ? day4.innerHTML = transformDate(curDay.getDay() + 4) : day4.innerHTML = undefined;
    }
 
 }
@@ -126,15 +133,26 @@ async function getForecastWeather() {
             let divImg = document.createElement("div");
             divImg.classList.add("weather__timeBlock__item__img");
             let imga = document.createElement("img");
-            imga.setAttribute("src", "https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png");
             imga.setAttribute("alt", "img");
+            let skyNow = array[i].weather[0].main;
+            // console.log(skyNow)
+
+            if (skyNow == "Clear") {
+               imga.setAttribute("src", "img/weatheriCO/sun.png");
+            } else if (skyNow == "Clouds") {
+               imga.setAttribute("src", "img/weatheriCO/cloud.png");
+            } else {
+               //####
+            }
             divImg.append(imga);
+
 
             // create weather
             let divWeather = document.createElement("div");
             divWeather.classList.add("weather__timeBlock__item__desc");
             let weather = document.createElement("p");
             weather.innerHTML = itemWeather;
+            console.log(weather)
             divWeather.append(weather);
 
             // create temp
