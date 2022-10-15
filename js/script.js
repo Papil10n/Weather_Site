@@ -10,6 +10,7 @@ let curDniproTemp = document.querySelector(".dnipro__temp");
 let cityDniproName = document.querySelector(".city-name");
 let humidityDnipro = document.querySelector(".info__humidity");
 let windDnipro = document.querySelector(".info__wind");
+let imgBlockDnipro = document.querySelector(".weather__img");
 
 let weatherBlockItem = document.querySelectorAll(".weather__timeBlock__article");
 
@@ -47,7 +48,7 @@ if (isDnipro) {
 async function getCurrentWether() {
    let promise = await fetch('https://api.openweathermap.org/data/2.5/weather?lat=48.45&lon=35.04&appid=60d465ff898de72b202b35030315ce9d');
    let list = await promise.json();
-   console.log(list);
+   // console.log(list);
 
    let country = list.sys.country;
    let sity = list.name;
@@ -82,6 +83,15 @@ async function getCurrentWether() {
       curWeather.innerHTML = mainDesc;
       windDnipro.innerHTML = `${windSpeed.toFixed(1)} km/h`;
       weatherDate.append(itemAddInfo);
+      const imgCurrentWeather = document.createElement("img");
+      if (mainDesc == "Clear") {
+         imgCurrentWeather.setAttribute("src", "img/weatheriCO/sun.png");
+      } else if (mainDesc == "Clouds") {
+         imgCurrentWeather.setAttribute("src", "img/weatheriCO/cloud.png");
+      } else {
+         //####
+      }
+      imgBlockDnipro.append(imgCurrentWeather);
 
       // Buttons "day"
       let day1 = document.querySelector(".day_1");
@@ -106,8 +116,11 @@ async function getForecastWeather() {
    let promise = await fetch('https://api.openweathermap.org/data/2.5/forecast?lat=48.46&lon=35.04&appid=60d465ff898de72b202b35030315ce9d');
    if (promise.ok) {
       let list = await promise.json();
-
       let array = list.list;
+
+      console.log(array[0])
+
+
       for (let i = 0; i < 8; i++) {
 
          if (isDnipro) {
@@ -152,7 +165,6 @@ async function getForecastWeather() {
             divWeather.classList.add("weather__timeBlock__item__desc");
             let weather = document.createElement("p");
             weather.innerHTML = itemWeather;
-            console.log(weather)
             divWeather.append(weather);
 
             // create temp
