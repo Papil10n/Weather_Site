@@ -157,7 +157,7 @@ async function getCurrentWetherAalsmeer() {
       const curTempAm = document.querySelector(".weather__city__info-temp_am");
       const IndexBlockImgAm = document.querySelector(".weather__city__info-img_am");
 
-      cityNameAm.innerHTML = `${sity.substring(8)}, Ukraine`;
+      cityNameAm.innerHTML = `${sity.substring(8)}, Netherlands`;
       curTempAm.innerHTML = `${temp}°`;
       curWeather.innerHTML = mainDesc;
       curWeather.innerHTML = mainDesc;
@@ -289,7 +289,7 @@ async function getForecastAalsmeer() {
       let array = list.list;
 
       for (let i = 0; i < 5; i++) {
-         // Nikopol
+         // Aalsmeer
          if (isAalsmeer) {
 
             let itemTime = (array[i].dt_txt).slice(10, array[i].dt_txt.length - 3);
