@@ -1,7 +1,6 @@
 // 60d465ff898de72b202b35030315ce9d     Api Key
 
 // global Info
-const curWeather = document.querySelector(".info-cloud");
 const weatherBlockItem = document.querySelectorAll(".weather__timeBlock__article");
 
 // Location
@@ -48,6 +47,7 @@ async function getCurrentWetherDnipro() {
 
    // Index
    if (isMainPage) {
+      const curWeather = document.querySelector(".info-cloud_dp");
       const cityNameDP = document.querySelector(".weather__city__name-name_dp");
       const curTempDP = document.querySelector(".weather__city__info-temp_dp");
       const IndexBlockImgDP = document.querySelector(".weather__city__info-img_dp");
@@ -100,6 +100,7 @@ async function getCurrentWetherNikopol() {
 
    // Index
    if (isMainPage) {
+      const curWeather = document.querySelector(".info-cloud_nk");
       const cityNameNK = document.querySelector(".weather__city__name-name_nk");
       const curTempNK = document.querySelector(".weather__city__info-temp_nk");
       const IndexBlockImgNK = document.querySelector(".weather__city__info-img_nk");
@@ -156,6 +157,8 @@ async function getCurrentWetherAalsmeer() {
       const cityNameAm = document.querySelector(".weather__city__name-name_am");
       const curTempAm = document.querySelector(".weather__city__info-temp_am");
       const IndexBlockImgAm = document.querySelector(".weather__city__info-img_am");
+      const curWeather = document.querySelector(".info-cloud_am");
+
 
       cityNameAm.innerHTML = `${sity.substring(8)}, Netherlands`;
       curTempAm.innerHTML = `${temp}°`;
