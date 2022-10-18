@@ -163,7 +163,7 @@ async function getCurrentWetherAalsmeer() {
       const IndexBlockImgAm = document.querySelector(".weather__city__info-img_am");
 
 
-      cityNameAm.innerHTML = `${sity.substring(8)}, Netherlands`;
+      cityNameAm.innerHTML = `Aalsmeer, Netherlands`;
       curTempAm.innerHTML = `${temp}°`;
       curWeatherAm.innerHTML = mainDesc;
       showCurrentImg(IndexBlockImgAm, mainDesc);
@@ -180,7 +180,8 @@ async function getCurrentWetherAalsmeer() {
       const weatherDate = document.querySelector(".weather__date");
       const itemAddInfo = document.createElement("div");
 
-      cityAalsmeerName.innerHTML = `${sity.substring(8)}, Netherlands`;
+      cityAalsmeerName.innerHTML = `Aalsmeer, Netherlands`;
+      console.log(cityAalsmeerName)
       curAalsmeerTemp.innerHTML = `${temp}°`;
       humidityAalsmeer.innerHTML = `${humidity}%`;
       curWeatherAm.innerHTML = mainDesc;
