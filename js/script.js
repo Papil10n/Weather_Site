@@ -3,6 +3,8 @@
 // global Info
 const weatherBlockItem = document.querySelectorAll(".weather__timeBlock__article");
 
+
+
 // Location
 let BrowserLocation = window.location.href;
 let partLocation = BrowserLocation.substring(BrowserLocation.length - 12);
@@ -44,18 +46,19 @@ async function getCurrentWetherDnipro() {
    let weather = list.weather[0];
    let mainDesc = weather.main;
    let windSpeed = list.wind.speed;
+   let curWeatherDp = document.querySelector(".info-cloud_dp");
+
+
 
    // Index
    if (isMainPage) {
-      const curWeather = document.querySelector(".info-cloud_dp");
       const cityNameDP = document.querySelector(".weather__city__name-name_dp");
       const curTempDP = document.querySelector(".weather__city__info-temp_dp");
       const IndexBlockImgDP = document.querySelector(".weather__city__info-img_dp");
 
       cityNameDP.innerHTML = `${sity}, Ukraine`;
       curTempDP.innerHTML = `${temp}°`;
-      curWeather.innerHTML = mainDesc;
-      curWeather.innerHTML = mainDesc;
+      curWeatherDp.innerHTML = mainDesc;
       showCurrentImg(IndexBlockImgDP, mainDesc);
    }
 
@@ -69,11 +72,10 @@ async function getCurrentWetherDnipro() {
       const imgBlockDnipro = document.querySelector(".weather__img");
       const weatherDate = document.querySelector(".weather__date");
       const itemAddInfo = document.createElement("div");
-
       cityDniproName.innerHTML = `${sity}, Ukraine`;
       curDniproTemp.innerHTML = `${temp}°`;
       humidityDnipro.innerHTML = `${humidity}%`;
-      curWeather.innerHTML = mainDesc;
+      curWeatherDp.innerHTML = mainDesc;
       windDnipro.innerHTML = `${windSpeed.toFixed(1)} km/h`;
       itemAddInfo.classList.add("item__add__info");
       itemAddInfo.innerHTML = weather.description;
@@ -97,18 +99,18 @@ async function getCurrentWetherNikopol() {
    let weather = list.weather[0];
    let mainDesc = weather.main;
    let windSpeed = list.wind.speed;
+   let curWeatherNk = document.querySelector(".info-cloud_nk");
+
 
    // Index
    if (isMainPage) {
-      const curWeather = document.querySelector(".info-cloud_nk");
       const cityNameNK = document.querySelector(".weather__city__name-name_nk");
       const curTempNK = document.querySelector(".weather__city__info-temp_nk");
       const IndexBlockImgNK = document.querySelector(".weather__city__info-img_nk");
 
       cityNameNK.innerHTML = `${sity}, Ukraine`;
       curTempNK.innerHTML = `${temp}°`;
-      curWeather.innerHTML = mainDesc;
-      curWeather.innerHTML = mainDesc;
+      curWeatherNk.innerHTML = mainDesc;
       showCurrentImg(IndexBlockImgNK, mainDesc);
    }
    // Nikopol
@@ -125,7 +127,7 @@ async function getCurrentWetherNikopol() {
       cityNKName.innerHTML = `${sity}, Ukraine`;
       curNKTemp.innerHTML = `${temp}°`;
       humidityNK.innerHTML = `${humidity}%`;
-      curWeather.innerHTML = mainDesc;
+      curWeatherNk.innerHTML = mainDesc;
       windNK.innerHTML = `${windSpeed.toFixed(1)} km/h`;
       itemAddInfo.classList.add("item__add__info");
       itemAddInfo.innerHTML = weather.description;
@@ -151,23 +153,23 @@ async function getCurrentWetherAalsmeer() {
    let weather = list.weather[0];
    let mainDesc = weather.main;
    let windSpeed = list.wind.speed;
+   let curWeatherAm = document.querySelector(".info-cloud_am");
+
 
    // Index
    if (isMainPage) {
       const cityNameAm = document.querySelector(".weather__city__name-name_am");
       const curTempAm = document.querySelector(".weather__city__info-temp_am");
       const IndexBlockImgAm = document.querySelector(".weather__city__info-img_am");
-      const curWeather = document.querySelector(".info-cloud_am");
 
 
       cityNameAm.innerHTML = `${sity.substring(8)}, Netherlands`;
       curTempAm.innerHTML = `${temp}°`;
-      curWeather.innerHTML = mainDesc;
-      curWeather.innerHTML = mainDesc;
+      curWeatherAm.innerHTML = mainDesc;
       showCurrentImg(IndexBlockImgAm, mainDesc);
    }
 
-   // Dnipro
+   // Aalsmeer
    if (isAalsmeer) {
 
       const curAalsmeerTemp = document.querySelector(".dnipro__temp");
@@ -178,10 +180,10 @@ async function getCurrentWetherAalsmeer() {
       const weatherDate = document.querySelector(".weather__date");
       const itemAddInfo = document.createElement("div");
 
-      cityAalsmeerName.innerHTML = `${sity}, Ukraine`;
+      cityAalsmeerName.innerHTML = `${sity.substring(8)}, Netherlands`;
       curAalsmeerTemp.innerHTML = `${temp}°`;
       humidityAalsmeer.innerHTML = `${humidity}%`;
-      curWeather.innerHTML = mainDesc;
+      curWeatherAm.innerHTML = mainDesc;
       windAalsmeer.innerHTML = `${windSpeed.toFixed(1)} km/h`;
       itemAddInfo.classList.add("item__add__info");
       itemAddInfo.innerHTML = weather.description;
