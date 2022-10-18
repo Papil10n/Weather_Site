@@ -9,6 +9,8 @@ let BrowserLocation = window.location.href;
 let partLocation = BrowserLocation.substring(BrowserLocation.length - 12);
 let isMainPage = partLocation.includes("index.html") || partLocation.includes("ther_Site/");
 let isDnipro = partLocation.includes("dnipro.html");
+let isNikopol = partLocation.includes("ikopol.html");
+let isAalsmeer = partLocation.includes("lsmeer.html");
 
 // set Current Date
 const week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -19,22 +21,24 @@ let curDay = new Date(Date.now());
 const transformDate = (index) => {
    return week[index];
 }
-if (isMainPage) {
-   currDay.innerHTML = transformDate(curDay.getDay());
-   currDate.innerHTML = `${curDay.getDate()}.${curDay.getMonth() + 1}.${curDay.getFullYear()}`;
-}
-if (isDnipro) {
-   currDay.innerHTML = transformDate(curDay.getDay());
-   currDate.innerHTML = `${curDay.getDate()}.${curDay.getMonth() + 1}.${curDay.getFullYear()}`;
-}
+// if (isMainPage) {
+currDay.innerHTML = transformDate(curDay.getDay());
+currDate.innerHTML = `${curDay.getDate()}.${curDay.getMonth() + 1}.${curDay.getFullYear()}`;
+// }
+// if (isDnipro) {
+//    currDay.innerHTML = transformDate(curDay.getDay());
+//    currDate.innerHTML = `${curDay.getDate()}.${curDay.getMonth() + 1}.${curDay.getFullYear()}`;
+// }
 // if (nextCity) {}
 
 
-// API request
-async function getCurrentWether() {
-   let promise = await fetch('https://api.openweathermap.org/data/2.5/weather?lat=48.45&lon=35.04&appid=60d465ff898de72b202b35030315ce9d');
-   let list = await promise.json();
+// API request`s
 
+// currentDnipro
+async function getCurrentWetherDnipro() {
+   let promise = await fetch('https://api.openweathermap.org/data/2.5/weather?lat=48.45&lon=35.04&appid=60d465ff898de72b202b35030315ce9d');
+
+   let list = await promise.json();
    let sity = list.name;
    let temp = normalizeTemp(list.main.temp);
    let humidity = list.main.humidity;
@@ -44,16 +48,15 @@ async function getCurrentWether() {
 
    // Index
    if (isMainPage) {
+      const cityNameDP = document.querySelector(".weather__city__name-name_dp");
+      const curTempDP = document.querySelector(".weather__city__info-temp_dp");
+      const IndexBlockImgDP = document.querySelector(".weather__city__info-img_dp");
 
-      const cityName = document.querySelector(".weather__city__name-name");
-      const curTemp = document.querySelector(".weather__city__info-temp");
-      const IndexBlockImg = document.querySelector(".weather__city__info-img");
-
-      cityName.innerHTML = `${sity}, Ukraine`;
-      curTemp.innerHTML = `${temp}°`;
+      cityNameDP.innerHTML = `${sity}, Ukraine`;
+      curTempDP.innerHTML = `${temp}°`;
       curWeather.innerHTML = mainDesc;
       curWeather.innerHTML = mainDesc;
-      showCurrentImg(IndexBlockImg, mainDesc);
+      showCurrentImg(IndexBlockImgDP, mainDesc);
    }
 
    // Dnipro
@@ -78,22 +81,120 @@ async function getCurrentWether() {
       weatherDate.append(itemAddInfo);
       showCurrentImg(imgBlockDnipro, mainDesc);
 
-      // Buttons "day"
-      let day1 = document.querySelector(".day_1");
-      let day2 = document.querySelector(".day_2");
-      let day3 = document.querySelector(".day_3");
-      let day4 = document.querySelector(".day_4");
-      day1 != undefined ? day1.innerHTML = transformDate(curDay.getDay() + 1) : day1.innerHTML = undefined;
-      day2 != undefined ? day2.innerHTML = transformDate(curDay.getDay() + 2) : day2.innerHTML = undefined;
-      day3 != undefined ? day3.innerHTML = transformDate(curDay.getDay() + 3) : day3.innerHTML = undefined;
-      day4 != undefined ? day4.innerHTML = transformDate(curDay.getDay() + 4) : day4.innerHTML = undefined;
    }
 
 }
-getCurrentWether();
+getCurrentWetherDnipro();
 
-// get Day Forecast
-async function getForecastWeather() {
+// currentNikopol
+async function getCurrentWetherNikopol() {
+   let promise = await fetch('https://api.openweathermap.org/data/2.5/weather?lat=47.5692&lon=34.3917&appid=60d465ff898de72b202b35030315ce9d');
+
+   let list = await promise.json();
+   let sity = list.name;
+   let temp = normalizeTemp(list.main.temp);
+   let humidity = list.main.humidity;
+   let weather = list.weather[0];
+   let mainDesc = weather.main;
+   let windSpeed = list.wind.speed;
+
+   // Index
+   if (isMainPage) {
+      const cityNameNK = document.querySelector(".weather__city__name-name_nk");
+      const curTempNK = document.querySelector(".weather__city__info-temp_nk");
+      const IndexBlockImgNK = document.querySelector(".weather__city__info-img_nk");
+
+      cityNameNK.innerHTML = `${sity}, Ukraine`;
+      curTempNK.innerHTML = `${temp}°`;
+      curWeather.innerHTML = mainDesc;
+      curWeather.innerHTML = mainDesc;
+      showCurrentImg(IndexBlockImgNK, mainDesc);
+   }
+   // Nikopol
+   if (isNikopol) {
+
+      const curNKTemp = document.querySelector(".dnipro__temp");
+      const cityNKName = document.querySelector(".city-name");
+      const humidityNK = document.querySelector(".info__humidityNK");
+      const windNK = document.querySelector(".info__wind");
+      const imgBlockNK = document.querySelector(".weather__img");
+      const weatherDate = document.querySelector(".weather__date");
+      const itemAddInfo = document.createElement("div");
+
+      cityNKName.innerHTML = `${sity}, Ukraine`;
+      curNKTemp.innerHTML = `${temp}°`;
+      humidityNK.innerHTML = `${humidity}%`;
+      curWeather.innerHTML = mainDesc;
+      windNK.innerHTML = `${windSpeed.toFixed(1)} km/h`;
+      itemAddInfo.classList.add("item__add__info");
+      itemAddInfo.innerHTML = weather.description;
+
+      weatherDate.append(itemAddInfo);
+      showCurrentImg(imgBlockNK, mainDesc);
+
+   }
+
+
+
+}
+getCurrentWetherNikopol();
+
+// currentAalsmeer
+async function getCurrentWetherAalsmeer() {
+   let promise = await fetch('https://api.openweathermap.org/data/2.5/weather?lat=52.2669&lon=4.7493&appid=60d465ff898de72b202b35030315ce9d');
+
+   let list = await promise.json();
+   let sity = list.name;
+   let temp = normalizeTemp(list.main.temp);
+   let humidity = list.main.humidity;
+   let weather = list.weather[0];
+   let mainDesc = weather.main;
+   let windSpeed = list.wind.speed;
+
+   // Index
+   if (isMainPage) {
+      const cityNameAm = document.querySelector(".weather__city__name-name_am");
+      const curTempAm = document.querySelector(".weather__city__info-temp_am");
+      const IndexBlockImgAm = document.querySelector(".weather__city__info-img_am");
+
+      cityNameAm.innerHTML = `${sity.substring(8)}, Ukraine`;
+      curTempAm.innerHTML = `${temp}°`;
+      curWeather.innerHTML = mainDesc;
+      curWeather.innerHTML = mainDesc;
+      showCurrentImg(IndexBlockImgAm, mainDesc);
+   }
+
+   // Dnipro
+   if (isAalsmeer) {
+
+      const curAalsmeerTemp = document.querySelector(".dnipro__temp");
+      const cityAalsmeerName = document.querySelector(".city-name");
+      const humidityAalsmeer = document.querySelector(".info__humidity");
+      const windAalsmeer = document.querySelector(".info__wind");
+      const imgBlockAalsmeer = document.querySelector(".weather__img");
+      const weatherDate = document.querySelector(".weather__date");
+      const itemAddInfo = document.createElement("div");
+
+      cityAalsmeerName.innerHTML = `${sity}, Ukraine`;
+      curAalsmeerTemp.innerHTML = `${temp}°`;
+      humidityAalsmeer.innerHTML = `${humidity}%`;
+      curWeather.innerHTML = mainDesc;
+      windAalsmeer.innerHTML = `${windSpeed.toFixed(1)} km/h`;
+      itemAddInfo.classList.add("item__add__info");
+      itemAddInfo.innerHTML = weather.description;
+
+      weatherDate.append(itemAddInfo);
+      showCurrentImg(imgBlockAalsmeer, mainDesc);
+
+   }
+
+}
+getCurrentWetherAalsmeer();
+
+
+// get Forecast Dnipro
+async function getForecastDnipro() {
+
    let promise = await fetch('https://api.openweathermap.org/data/2.5/forecast?lat=48.46&lon=35.04&appid=60d465ff898de72b202b35030315ce9d');
    if (promise.ok) {
       let list = await promise.json();
@@ -132,16 +233,95 @@ async function getForecastWeather() {
       console.log("Ошибка HTTP: " + response.status);
    }
 }
-getForecastWeather();
+getForecastDnipro();
 
+// Forecast Nikopol
+async function getForecastNikopol() {
 
-// get Sity lat and lon ( if need )
-async function getID() {
-   let promise = await fetch('http://api.openweathermap.org/geo/1.0/direct?q=Dnipro&limit=5&appid=60d465ff898de72b202b35030315ce9d');
-   let list = await promise.json();
+   let promise = await fetch('https://api.openweathermap.org/data/2.5/forecast?lat=47.5692&lon=34.3917&appid=60d465ff898de72b202b35030315ce9d');
 
+   if (promise.ok) {
+      let list = await promise.json();
+      let array = list.list;
+
+      for (let i = 0; i < 5; i++) {
+         // Nikopol
+         if (isNikopol) {
+
+            let itemTime = (array[i].dt_txt).slice(10, array[i].dt_txt.length - 3);
+            let itemWeather = array[i].weather[0].main;
+            let itemTemp = (array[i].main.temp - 273.15).toFixed(0) + "°";
+            let itemFeels = "ощущ. как: " + (array[i].main.feels_like - 273.15).toFixed(0) + "°";
+            let windDeg = array[i].wind.deg;
+            let itemWind = "ветер: " + array[i].wind.speed.toFixed(1) + " км/ч";
+
+            // create elem
+            let newBlockItem = document.createElement("div");
+            newBlockItem.classList.add("weather__timeBlock__item");
+
+            // set data
+            showTime(newBlockItem, itemTime);
+            showImg(newBlockItem, itemWeather, itemTime);
+            showWeatherInfo(newBlockItem, itemWeather);
+            showTemperature(newBlockItem, itemTemp);
+            showFeels(newBlockItem, itemFeels);
+            showWindImage(newBlockItem, windDeg);
+            showWind(newBlockItem, itemWind);
+
+            //
+            weatherBlockItem[i].append(newBlockItem);
+         }
+      }
+
+   } else {
+      console.log("Ошибка HTTP: " + response.status);
+   }
 }
+getForecastNikopol();
 
+// Forecast Aalsmeer
+async function getForecastAalsmeer() {
+
+   let promise = await fetch('https://api.openweathermap.org/data/2.5/forecast?lat=52.2669&lon=4.7493&appid=60d465ff898de72b202b35030315ce9d');
+
+   if (promise.ok) {
+      let list = await promise.json();
+      let array = list.list;
+
+      for (let i = 0; i < 5; i++) {
+         // Nikopol
+         if (isAalsmeer) {
+
+            let itemTime = (array[i].dt_txt).slice(10, array[i].dt_txt.length - 3);
+            let itemWeather = array[i].weather[0].main;
+            let itemTemp = (array[i].main.temp - 273.15).toFixed(0) + "°";
+            let itemFeels = "ощущ. как: " + (array[i].main.feels_like - 273.15).toFixed(0) + "°";
+            let windDeg = array[i].wind.deg;
+            let itemWind = "ветер: " + array[i].wind.speed.toFixed(1) + " км/ч";
+
+            // create elem
+            let newBlockItem = document.createElement("div");
+            newBlockItem.classList.add("weather__timeBlock__item");
+
+            // set data
+            showTime(newBlockItem, itemTime);
+            showImg(newBlockItem, itemWeather, itemTime);
+            showWeatherInfo(newBlockItem, itemWeather);
+            showTemperature(newBlockItem, itemTemp);
+            showFeels(newBlockItem, itemFeels);
+            showWindImage(newBlockItem, windDeg);
+            showWind(newBlockItem, itemWind);
+
+            //
+            weatherBlockItem[i].append(newBlockItem);
+         }
+      }
+
+   } else {
+      console.log("Ошибка HTTP: " + response.status);
+   }
+}
+getForecastAalsmeer();
 
 
 // function"S
@@ -258,3 +438,15 @@ const showWind = (appendBlock, windInfo) => {
 const checkNigthTime = (nightTime) => {
    return nightTime === " 21:00" || nightTime === " 00:00" || nightTime === " 03:00" ? true : false;
 }
+
+
+
+// get Sity lat and lon ( if need )
+/*
+async function getID() {
+   let promise = await fetch('http://api.openweathermap.org/geo/1.0/direct?q=Kyiv&limit=5&appid=60d465ff898de72b202b35030315ce9d');
+   let list = await promise.json();
+}
+getID();
+*/
+// kyiv lat: 47.8671228, lon: 31.0179572;

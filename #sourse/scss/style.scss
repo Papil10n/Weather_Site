@@ -160,7 +160,7 @@ body {
   margin-right: 15px;
 }
 
-.weather__city__info-img {
+.weather__city__info-img_dp, .weather__city__info-img_nk, .weather__city__info-img_am  {
   img {
     width: 60px;
     border-radius: 45px;
@@ -172,7 +172,7 @@ body {
 
 .weather__city__info-data {}
 
-.weather__city__info-temp {
+.weather__city__info-temp_dp, .weather__city__info-temp_nk, .weather__city__info-temp_am {
   font-size: 38px;
     @media (max-width: $md3) {
       font-size: 28px;
@@ -190,7 +190,7 @@ body {
 
 .weather__city__name {}
 
-.weather__city__name-name {
+.weather__city__name-name_dp, .weather__city__name-name_nk, .weather__city__name-name_am {
   font-size: 36px;
       @media (max-width: $md3) {
           font-size: 28px;

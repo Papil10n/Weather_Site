@@ -225,21 +225,21 @@ body._lock {
   margin-right: 15px;
 }
 
-.weather__city__info-img img {
+.weather__city__info-img_dp img, .weather__city__info-img_nk img, .weather__city__info-img_am img {
   width: 60px;
   border-radius: 45px;
 }
 @media (max-width: 768px) {
-  .weather__city__info-img img {
+  .weather__city__info-img_dp img, .weather__city__info-img_nk img, .weather__city__info-img_am img {
     width: 50px;
   }
 }
 
-.weather__city__info-temp {
+.weather__city__info-temp_dp, .weather__city__info-temp_nk, .weather__city__info-temp_am {
   font-size: 38px;
 }
 @media (max-width: 768px) {
-  .weather__city__info-temp {
+  .weather__city__info-temp_dp, .weather__city__info-temp_nk, .weather__city__info-temp_am {
     font-size: 28px;
   }
 }
@@ -255,16 +255,16 @@ body._lock {
   }
 }
 
-.weather__city__name-name {
+.weather__city__name-name_dp, .weather__city__name-name_nk, .weather__city__name-name_am {
   font-size: 36px;
 }
 @media (max-width: 768px) {
-  .weather__city__name-name {
+  .weather__city__name-name_dp, .weather__city__name-name_nk, .weather__city__name-name_am {
     font-size: 28px;
   }
 }
 @media (max-width: 480px) {
-  .weather__city__name-name {
+  .weather__city__name-name_dp, .weather__city__name-name_nk, .weather__city__name-name_am {
     font-size: 18px;
   }
 }

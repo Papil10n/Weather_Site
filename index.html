@@ -1,67 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-   <meta charset="UTF-8">
-   <meta name="format-detection" content="telephone=no">
-   <link rel="shortcut icon" href="img/ico.ico" type="">
-   <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="shortcut icon" href="img/ico.ico" type="">
+    <link rel="stylesheet" href="css/style.css">
 
-   <title>Papillon Weather</title>
+    <title>Papillon Weather</title>
 
-   <!-- Настройки адаптивности страницы  -->
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <!-- Отключает принудительную ссылку у номера телефона на iOS -->
-   <meta name="format-detection" content="telephone=no">
+    <!-- Настройки адаптивности страницы  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Отключает принудительную ссылку у номера телефона на iOS -->
+    <meta name="format-detection" content="telephone=no">
 
-   <!-- SEO -->
-   <!-- Краткое описание страницы  -->
-   <meta name="description" content="">
-   <!-- Ключевые слова страницы  -->
-   <meta name="keywords" content="">
-   <!-- Управление доступом поисковых роботов к странице -->
-   <meta name="robots" content="">
+    <!-- SEO -->
+    <!-- Краткое описание страницы  -->
+    <meta name="description" content="">
+    <!-- Ключевые слова страницы  -->
+    <meta name="keywords" content="">
+    <!-- Управление доступом поисковых роботов к странице -->
+    <meta name="robots" content="">
 </head>
-
 <body>
    <div class="wrapper">
-      <header class="header">
-         <div class="header__container _container">
-            <div class="header__text">
-               <h1>Papillon’s Weather</h1>
-            </div>
-            <div class="header__date">
-               <div class="header__date-day">
-                  <p class="date-day"></p>
-               </div>
-               <div class="header__date-num">
-                  <p class="date-num"></p>
-               </div>
-            </div>
+<header class="header">
+   <div class="header__container _container">
+      <div class="header__text">
+         <h1>Papillon’s Weather</h1>
+      </div>
+      <div class="header__date">
+         <div class="header__date-day">
+            <p class="date-day"></p>
          </div>
-      </header>
-      <main class="page">
+         <div class="header__date-num">
+            <p class="date-num"></p>
+         </div>
+      </div>
+   </div>
+</header>      <main class="page">
          <!-- section1 -->
          <section class="weather">
             <div class="weather__container _container">
-
                <article class="weather__city">
                   <a href="dnipro.html" class="weather__city__href">
                      <div class="weather__city__box">
                         <div class="weather__city__info">
                            <div class="weather__city__info-image">
-                              <div class="weather__city__info-img">
+                              <div class="weather__city__info-img_dp">
                               </div>
                            </div>
                            <div class="weather__city__info-data">
-                              <div class="weather__city__info-temp"></div>
+                              <div class="weather__city__info-temp_dp"></div>
                               <div class="weather__city__info-cloud">
                                  <p class="info-cloud"></p>
                               </div>
                            </div>
                         </div>
                         <div class="weather__city__name">
-                           <div class="weather__city__name-name"></div>
+                           <div class="weather__city__name-name_dp"></div>
+                        </div>
+                     </div>
+                  </a>
+               </article>
+
+               <article class="weather__city">
+                  <a href="nikopol.html" class="weather__city__href">
+                     <div class="weather__city__box">
+                        <div class="weather__city__info">
+                           <div class="weather__city__info-image">
+                              <div class="weather__city__info-img_nk">
+                              </div>
+                           </div>
+                           <div class="weather__city__info-data">
+                              <div class="weather__city__info-temp_nk"></div>
+                              <div class="weather__city__info-cloud">
+                                 <p class="info-cloud"></p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="weather__city__name">
+                           <div class="weather__city__name-name_nk"></div>
+                        </div>
+                     </div>
+                  </a>
+               </article>
+
+               <article class="weather__city">
+                  <a href="aalsmeer.html" class="weather__city__href">
+                     <div class="weather__city__box">
+                        <div class="weather__city__info">
+                           <div class="weather__city__info-image">
+                              <div class="weather__city__info-img_am">
+                              </div>
+                           </div>
+                           <div class="weather__city__info-data">
+                              <div class="weather__city__info-temp_am"></div>
+                              <div class="weather__city__info-cloud">
+                                 <p class="info-cloud"></p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="weather__city__name">
+                           <div class="weather__city__name-name_am"></div>
                         </div>
                      </div>
                   </a>
@@ -71,7 +111,6 @@
          </section>
       </main>
    </div>
-   <script src="js/script.js"></script>
-</body>
+<script src="js/script.js"></script></body>
 
 </html>
