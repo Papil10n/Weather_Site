@@ -342,6 +342,8 @@ const showCurrentImg = (appendBlock, weatherInfo) => {
       imgCurImg.setAttribute("src", "img/weatheriCO/sun.png");
    } else if (weatherInfo == "Clouds") {
       imgCurImg.setAttribute("src", "img/weatheriCO/cloud.png");
+   } else if (weatherInfo == "Rain") {
+      imgCurImg.setAttribute("src", "img/weatheriCO/rain.png");
    } else {
       //####
    }
@@ -378,7 +380,9 @@ const showImg = (appendBlock, setWeather, time) => {
             imga.setAttribute("src", "img/weatheriCO/cloudNight.png")
             : imga.setAttribute("src", "img/weatheriCO/cloud.png");
          break;
-      // case #####:
+      case "Rain":
+         imga.setAttribute("src", "img/weatheriCO/rain.png");
+         break;
    }
 
    divImg.append(imga);
